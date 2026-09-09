@@ -1,23 +1,37 @@
-console.log("Content script loaded");
-/*
-document.addEventListener("keydown", (e) => {
-    console.log(e.key);
-});
-*/
-document.addEventListener("keydown", (e) => {
-    console.log("Key pressed:", e.key, e.ctrlKey, e.shiftKey);
-    if (
-        e.ctrlKey &&
-        e.shiftKey &&
-        e.key.toLowerCase() === "q" &&
-        e.key.toLowerCase() === "w" &&
-        e.key.toLowerCase() === "e" &&
-        e.key.toLowerCase() === "r" &&
-        e.key.toLowerCase() === "t"
-    ) {
-        console.log("Ctrl + Shift + G detected!");
-        chrome.runtime.sendMessage({
-            action: "openGithub"
-        });
-    }
-});
+// content.js
+const style = document.createElement('style');
+style.textContent = `
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('${chrome.runtime.getURL('fonts/MinecraftRegular-Bmg3.otf')}') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('${chrome.runtime.getURL('fonts/MinecraftBold-nMK1.otf')}') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('${chrome.runtime.getURL('fonts/MinecraftItalic-R8Mo.otf')}') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('${chrome.runtime.getURL('fonts/MinecraftBoldItalic-1y1e.otf')}') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  * {
+    font-family: 'Minecraft', monospace !important;
+  }
+`;
+
+document.documentElement.appendChild(style);
