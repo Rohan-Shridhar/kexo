@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 260px;
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.popup {
+    padding: 18px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 15px 0;
+}
+
+.font-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.font-option span {
+    font-size: 14px;
+}
+
+#fontToggle {
+    border: none;
+    background: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0;
+}
+
+#fontToggle.enabled {
+    color: #4ade80;
+}
+
+#fontToggle:hover {
+    transform: scale(1.08);
+}
